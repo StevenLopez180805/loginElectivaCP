@@ -1,12 +1,37 @@
 {% extends 'base.html' %}
 {% block content %}
-  <h1>SignUp</h1>
-  {{error}}
-  <form method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button>
-      SignUp
-    </button>
-  </form>
+  <div class="container-fluid min-vh-100 d-flex align-items-center justify-content-center flex-column">
+    <h1 class="fw-bold text-white">Registrarse</h1>
+    <div class="card card-log mt-5">
+      <div class="card-body">
+        <form method="POST">
+          {% csrf_token %}
+          <div class="row">
+            <div class="col-12 mb-3">
+              <label for="username" class="fw-semibold">Nombre de usuario:</label>
+              <input type="text" class="form-control" placeholder="Ingrese un nombre de usuario" id="username" name="username">
+            </div>
+            <div class="col-12 mb-3">
+              <label for="password1" class="fw-semibold">Contraseña:</label>
+              <input type="text" class="form-control" placeholder="Ingrese una contraseña" id="password1" name="password1">
+            </div>
+            <div class="col-12">
+              <label for="password2" class="fw-semibold">Confirmar contraseña:</label>
+              <input type="text" class="form-control" placeholder="Confirme su contraseña" id="password2" name="password2">
+            </div>
+          </div>
+          <button class="btn btn-sm btn-success w-100 mt-3 mb-2" type="submit">
+            Registrarse
+          </button>
+          <p class="p-0 m-0 text-center">Si ya tiene una cuenta, haga <a href="/signIn/" class="text-info fw-semibold text-decoration-none">clic aquí</a> para iniciar sesión.</p>
+        </form>
+      </div>
+    </div>
+    {% if error %}
+      <div class="alert alert-danger text-center mt-3" role="alert">
+        {{ error }}
+      </div>
+    {% endif %}
+  </div>
+  
 {% endblock %}

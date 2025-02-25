@@ -1,2 +1,11 @@
 {% extends 'base.html' %}
-<h1>Home</h1>
+{% block content %}
+  <div class="container-fluid min-vh-100 d-flex align-items-center justify-content-center flex-column">
+    {% if user.is_authenticated %}
+      <h1 class="fw-bold text-white w-75 text-center">Felicidades, has iniciado sesión. Puedes dar clic en el boton en cualquier momento para cerrar tu sesión ;)</h1>
+      <a href='/logOut/' class="btn btn-danger mt-5">Cerrar sesión</a>
+    {% else %}
+      <h1 class="fw-bold text-white w-75 text-center">Actualmente, no cuentas con una sesión activa, haz <a href="/signIn/" class="text-info fw-semibold text-decoration-none">clic aquí</a> para iniciar sesión</h1>
+    {% endif %}
+  </div>
+{% endblock %}

@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Londrina+Outline&family=Roboto:wght@100..900&display=swap');
+*{
+  font-family: 'Roboto', sans-serif !important;
+}
+body {
+  background-color: rgb(5, 33, 42) !important;
+}
+.card-log{
+  width: 20% !important;
+}
+.alert{
+  width: 20% !important;
+}
